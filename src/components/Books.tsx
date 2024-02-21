@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { BOOK_URL } from "../utils/constants.tsx";
-import BookCard from "./BookCard.tsx";
+import BookCard from "./Cards/BookCard.tsx";
 
 const Books = () => {
   interface Book {
@@ -19,7 +19,7 @@ const Books = () => {
       const data = await response.json();
       const _Books = data?.data;
       setFetchedData(_Books);
-      console.log(_Books);
+      //console.log(_Books);
     } catch (error) {
       console.error(`some error occured ${error}`);
     }

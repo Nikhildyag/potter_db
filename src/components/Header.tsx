@@ -1,5 +1,6 @@
 import React from "react";
 import { LOGO_URL } from "../utils/constants.tsx";
+import { Link } from "react-router-dom";
 
 const Header = () => {
   return (
@@ -9,15 +10,22 @@ const Header = () => {
       </div>
       <div className="justify-center">
         <ul className="flex">
-          <li className="m-7 font-bold cursor-pointer hover:text-violet-950">
-            Home
-          </li>
+          <Link to="/">
+            <li className="m-7 font-bold cursor-pointer hover:text-violet-950">
+              Home
+            </li>
+          </Link>
           <li className="m-7 font-bold cursor-pointer hover:text-violet-950">
             About Us
           </li>
           <li className="m-7 font-bold cursor-pointer hover:text-violet-950">
             Contact
           </li>
+          <a href="https://docs.potterdb.com/">
+            <li className="m-7 font-bold cursor-pointer hover:text-violet-950">
+              API Docs
+            </li>
+          </a>
         </ul>
       </div>
     </div>
