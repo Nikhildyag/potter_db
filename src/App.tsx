@@ -7,6 +7,7 @@ import Movies from "./components/Movies.tsx";
 import Potions from "./components/Potions.tsx";
 import Spells from "./components/Spells.tsx";
 import Header from "./components/Header.tsx";
+import BodyItems from "./components/BodyItems.js";
 
 const AppLayout = () => {
   return (
@@ -45,6 +46,10 @@ const router = createBrowserRouter([
       {
         path: "/movies",
         element: <Movies />,
+      },
+      {
+        path: "/books/:id",
+        element: <BodyItems />,
       },
     ],
   },

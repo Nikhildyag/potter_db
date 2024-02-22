@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { BOOK_URL } from "../utils/constants.tsx";
-import BookCard from "./Cards/BookCard.tsx";
+import BooksCard from "./Cards/BooksCard.tsx";
+import { Link } from "react-router-dom";
 
 const Books = () => {
   interface Book {
+    id: string;
     attributes: {};
   }
   const [fetchedData, setFetchedData] = useState<Book[]>([]);
@@ -19,7 +21,7 @@ const Books = () => {
       const data = await response.json();
       const _Books = data?.data;
       setFetchedData(_Books);
-      //console.log(_Books);
+      console.log(fetchedData);
     } catch (error) {
       console.error(`some error occured ${error}`);
     }
@@ -32,9 +34,13 @@ const Books = () => {
   return (
     <div>
       <div className="flex flex-wrap w-8/12 m-auto">
-        {fetchedData.map((book) => (
-          <BookCard Bookdata={book} />
+        {fetchedData?.map((book) => (
+          <Link to={"/books/" + book?.id}>
+            <BooksCard Bookdata={book} />
+            //
+          </Link>
         ))}
+        {/* nikhil */}
       </div>
     </div>
   );
